@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\TasK\Entity;
+namespace App\Domain\Task\Entity;
 
 use App\Enum\TaskStatus;
 use DateTime;

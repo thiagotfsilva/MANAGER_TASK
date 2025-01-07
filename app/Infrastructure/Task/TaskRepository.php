@@ -2,9 +2,10 @@
 
 namespace App\Infrastructure\Task;
 
-use App\Domain\TasK\Entity\Task;
-use App\Domain\TasK\Repository\TaskRepositoryInterface;
+use App\Domain\Task\Entity\Task;
+use App\Domain\Task\Repository\TaskRepositoryInterface;
 use App\Enum\TaskStatus;
+use DateTime;
 use Illuminate\Support\Facades\DB;
 
 class TaskRepository implements TaskRepositoryInterface
@@ -29,6 +30,7 @@ class TaskRepository implements TaskRepositoryInterface
             $task->title,
             $task->description,
             TaskStatus::from($task->status),
+            new DateTime($task->created_at),
         );
     }
 

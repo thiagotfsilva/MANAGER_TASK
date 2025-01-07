@@ -13,6 +13,7 @@ class Task extends Model
         'title',
         'description',
         'status',
+        'created_at',
         'completed_at',
     ];
 }

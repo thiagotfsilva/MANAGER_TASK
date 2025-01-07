@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Domain\TasK\Entity\Task as EntityTask;
-use App\Domain\TasK\Service\TaskService;
+use App\Domain\Task\Entity\Task as EntityTask;
+use App\Domain\Task\Service\TaskService;
 use App\Enum\TaskStatus;
 use App\Http\Requests\StoreTaskRequest;
 use App\Http\Requests\UpdateTaskRequest;

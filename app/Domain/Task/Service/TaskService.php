@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Domain\TasK\Service;
+namespace App\Domain\Task\Service;
 
-use App\Domain\TasK\Entity\Task;
-use App\Domain\TasK\Repository\TaskRepositoryInterface;
+use App\Domain\Task\Entity\Task;
+use App\Domain\Task\Repository\TaskRepositoryInterface;
 use InvalidArgumentException;
 
 class TaskService
