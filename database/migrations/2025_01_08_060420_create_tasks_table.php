@@ -18,6 +18,7 @@ return new class extends Migration
             $table->enum('status', ['PENDING', 'IN_PROGRESS', 'DONE']);
             $table->timestamp('created_at');
             $table->foreignId('creator_id')->constrained('users')->cascadeOnDelete();
+            $table->foreignId('project_id')->constrained('projects')->cascadeOnDelete();
             $table->timestamp('completed_at')->nullable();
         });
     }

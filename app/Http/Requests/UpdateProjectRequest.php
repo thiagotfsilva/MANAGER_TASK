@@ -2,10 +2,9 @@
 
 namespace App\Http\Requests;
 
-use App\Enum\TaskStatus;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreTaskRequest extends FormRequest
+class UpdateProjectRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,8 +22,8 @@ class StoreTaskRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|min:5|max:256',
-            'description' => 'nullable|min:5',
+            'title' => 'sometimes|min:5|max:256',
+            'description' => 'sometimes|min:5',
         ];
     }
 }
