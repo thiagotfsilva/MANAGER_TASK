@@ -31,7 +31,8 @@ class TaskController extends Controller
                 $validated['id'] ?? null,
                 $validated['title'],
                 $validated['description'] ?? null,
-                $user->id
+                $user->id,
+                $validated['project_id'],
             );
             $task = $this->taskService->createTask($taskDTO);
             return response()->json($task->toArray(), JsonResponse::HTTP_CREATED);
@@ -74,6 +75,7 @@ class TaskController extends Controller
             $validated['title'] ?? $existingTask->getTitle(),
             $validated['description'] ?? $existingTask->getDescritption(),
             $user->id,
+            $existingTask->getProjectId(),
             $status,
             $existingTask->getCreatedAt(),
             isset($validated['completed_at']) ? new DateTime($validated['completed_at']) : $existingTask->getCompletAt(),

@@ -16,6 +16,7 @@ class TaskService
             'title' => $task->getTitle(),
             'description' => $task->getDescritption(),
             'creator_id' => $task->getCreatorId(),
+            'project_id' => $task->getProjectId(),
             'status' => $task->getStatus(),
             'created_at' => $task->getCreatedAt(),
         ]);
@@ -35,6 +36,7 @@ class TaskService
             'title' => $task->getTitle(),
             'description' => $task->getDescritption(),
             'creator_id' => $task->getCreatorId(),
+            'project_id' => $task->getProjectId(),
             'status' => $task->getStatus(),
             'completed_at' => $task->getCompletAt(),
         ]);

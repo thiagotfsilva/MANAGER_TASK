@@ -16,6 +16,7 @@ class TaskRepository implements TaskRepositoryInterface
             'title' => $data['title'],
             'description' => $data['description'],
             'creator_id' => $data['creator_id'],
+            'project_id' => $data['project_id'],
             'status' => $data['status'],
             'created_at' => $data['created_at']
         ]);
@@ -31,6 +32,7 @@ class TaskRepository implements TaskRepositoryInterface
             $task->title,
             $task->description,
             $task->creator_id,
+            $task->project_id,
             TaskStatus::from($task->status),
             new DateTime($task->created_at),
         );
@@ -44,6 +46,7 @@ class TaskRepository implements TaskRepositoryInterface
                 'title' => $data['title'],
                 'description' => $data['description'],
                 'creator_id' => $data['creator_id'],
+                'project_id' => $data['project_id'],
                 'status' => $data['status'],
                 'completed_at' => $data['completed_at'],
             ]);

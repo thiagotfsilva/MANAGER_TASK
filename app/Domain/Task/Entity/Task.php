@@ -14,12 +14,14 @@ class Task
     private DateTime $created_at;
     private ?DateTime $completed_at;
     private int $creator_id;
+    private int $project_id;
 
     public function __construct(
         ?int $id,
         string $title,
         ?string $description,
         int $creator_id,
+        int $project_id,
         TaskStatus $status = TaskStatus::PENDING,
         ?DateTime $created_at = null,
         ?DateTime $completed_at = null,
@@ -31,6 +33,7 @@ class Task
         $this->completed_at = $completed_at;
         $this->created_at = $created_at ?? new DateTime();
         $this->creator_id =  $creator_id;
+        $this->project_id =  $project_id;
     }
 
     public function getId(): int
@@ -41,6 +44,11 @@ class Task
     public function getCreatorId(): int
     {
         return $this->creator_id;
+    }
+
+    public function getProjectId(): int
+    {
+        return $this->project_id;
     }
 
     public function getTitle(): string
@@ -78,6 +86,7 @@ class Task
             'created_at' => $this->getCreatedAt()->format('Y-m-d H:i:s'),
             'completed_at' => $this->getCompletAt()?->format('Y-m-d H:i:s'),
             'creator_id' => $this->getCreatorId(),
+            'project_id' => $this->getProjectId(),
         ];
     }
 }
