@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->enum('status', ['PENDING', 'IN_PROGRESS', 'DONE']);
             $table->timestamp('created_at');
+            $table->foreignId('creator_id')->constrained('users')->cascadeOnDelete();
             $table->timestamp('completed_at')->nullable();
         });
     }
