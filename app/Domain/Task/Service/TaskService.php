@@ -15,6 +15,7 @@ class TaskService
         return $this->taskRepository->createTask([
             'title' => $task->getTitle(),
             'description' => $task->getDescritption(),
+            'creator_id' => $task->getCreatorId(),
             'status' => $task->getStatus(),
             'created_at' => $task->getCreatedAt(),
         ]);
@@ -33,6 +34,7 @@ class TaskService
             'id' => $task->getId(),
             'title' => $task->getTitle(),
             'description' => $task->getDescritption(),
+            'creator_id' => $task->getCreatorId(),
             'status' => $task->getStatus(),
             'completed_at' => $task->getCompletAt(),
         ]);

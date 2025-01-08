@@ -17,16 +17,21 @@ use Illuminate\Support\Facades\Request;
 class TaskController extends Controller
 {
 
-    public function __construct(private TaskService $taskService) {}
+    public function __construct(private TaskService $taskService) {
+        $this->middleware('auth:api');
+    }
 
     public function store(StoreTaskRequest $request)
     {
         try {
             $validated = $request->validated();
+            $user = auth()->user();
+
             $taskDTO = new EntityTask(
                 $validated['id'] ?? null,
                 $validated['title'],
                 $validated['description'] ?? null,
+                $user->id
             );
             $task = $this->taskService->createTask($taskDTO);
             return response()->json($task->toArray(), JsonResponse::HTTP_CREATED);
@@ -62,13 +67,16 @@ class TaskController extends Controller
         ? TaskStatus::from($validated['status'])
         : $existingTask->getStatus();
 
+        $user = auth()->user();
+
         $taskDTO = new EntityTask(
             $id,
             $validated['title'] ?? $existingTask->getTitle(),
             $validated['description'] ?? $existingTask->getDescritption(),
+            $user->id,
             $status,
             $existingTask->getCreatedAt(),
-            isset($validated['completed_at']) ? new DateTime($validated['completed_at']) : $existingTask->getCompletAt()
+            isset($validated['completed_at']) ? new DateTime($validated['completed_at']) : $existingTask->getCompletAt(),
         );
 
         $task = $this->taskService->updateTask($taskDTO);

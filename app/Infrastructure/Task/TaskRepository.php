@@ -15,6 +15,7 @@ class TaskRepository implements TaskRepositoryInterface
         $taskId = DB::table('tasks')->insertGetId([
             'title' => $data['title'],
             'description' => $data['description'],
+            'creator_id' => $data['creator_id'],
             'status' => $data['status'],
             'created_at' => $data['created_at']
         ]);
@@ -29,6 +30,7 @@ class TaskRepository implements TaskRepositoryInterface
             $task->id,
             $task->title,
             $task->description,
+            $task->creator_id,
             TaskStatus::from($task->status),
             new DateTime($task->created_at),
         );
@@ -41,6 +43,7 @@ class TaskRepository implements TaskRepositoryInterface
             ->update([
                 'title' => $data['title'],
                 'description' => $data['description'],
+                'creator_id' => $data['creator_id'],
                 'status' => $data['status'],
                 'completed_at' => $data['completed_at'],
             ]);

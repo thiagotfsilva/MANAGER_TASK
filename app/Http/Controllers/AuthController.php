@@ -10,7 +10,7 @@ use App\Http\Requests\UserRegisterRequest;
 class AuthController extends Controller
 {
     public function __construct(private AuthService $authService) {
-        $this->middleware('auth:api', ['except' => ['login']]);
+        $this->middleware('auth:api', ['except' => ['login', 'register']]);
     }
 
     public function register(UserRegisterRequest $request)
