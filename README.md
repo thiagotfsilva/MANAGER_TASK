@@ -8,11 +8,14 @@ Esta é uma API para gerenciamento de tarefas, desenvolvida utilizando o framewo
 
 - Modelo Entidade-Relacionamento (MER) do sistema é composto por três principais entidades: Users, Projects e Tasks, que possuem os seguintes relacionamentos:
 
-### Users (Usuários): Representam os usuários do sistema, armazenando informações como nome, email (único) e senha. A tabela também inclui campos para verificação de email e tokens de autenticação.
+### Users (Usuários): 
+- Representam os usuários do sistema, armazenando informações como nome, email (único) e senha. A tabela também inclui campos para verificação de email e tokens de autenticação.
 
-### Projects (Projetos): Cada projeto possui um título, uma descrição opcional e é criado por um usuário (relacionamento com a tabela Users). A deleção de um usuário resulta na deleção de seus projetos associados.
+### Projects (Projetos): 
+- Cada projeto possui um título, uma descrição opcional e é criado por um usuário (relacionamento com a tabela Users). A deleção de um usuário resulta na deleção de seus projetos associados.
 
-### Tasks (Tarefas): Representam tarefas associadas a projetos. Cada tarefa tem um título, descrição opcional, status (PENDING, IN_PROGRESS ou DONE), data de criação e conclusão (opcional). Cada tarefa é vinculada a um criador (relacionamento com Users) e a um projeto (relacionamento com Projects). A deleção de um usuário ou projeto também exclui suas tarefas associadas.
+### Tasks (Tarefas): 
+- Representam tarefas associadas a projetos. Cada tarefa tem um título, descrição opcional, status (PENDING, IN_PROGRESS ou DONE), data de criação e conclusão (opcional). Cada tarefa é vinculada a um criador (relacionamento com Users) e a um projeto (relacionamento com Projects). A deleção de um usuário ou projeto também exclui suas tarefas associadas.
 
 Esse modelo organiza as tarefas e projetos em um contexto colaborativo, onde usuários gerenciam projetos e suas respectivas tarefas, permitindo controle sobre as dependências e integridade referencial.
 
