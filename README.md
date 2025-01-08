@@ -35,6 +35,16 @@ docker compose up -d
 cd MANAGER-TASk
 ```
 
+#### Configure as credenciais do database no env
+```bash
+DB_CONNECTION=pgsql
+DB_HOST=127.0.0.1
+DB_PORT=5432
+DB_DATABASE=task_db
+DB_USERNAME=root
+DB_PASSWORD=root
+```
+
 #### Instale as depedências
 ```bash
 composer install
